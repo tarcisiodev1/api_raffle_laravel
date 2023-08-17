@@ -12,6 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            ChurchSeeder::class,
+            DrawGroupSeeder::class,
+            DrawSeeder::class,
+            PrizeSeeder::class,
+            ParticipantSeeder::class,
+            WinnerSeeder::class,
+        ]);
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
