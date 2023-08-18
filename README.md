@@ -48,7 +48,8 @@ A API oferece endpoints para gerenciar igrejas, grupos de sorteios, sorteios, pr
 -   **POST /api/churches:** Cria uma nova igreja.
 -   **GET /api/draw-groups:** Retorna a lista de grupos de sorteios.
 -   **POST /api/draw-groups:** Cria um novo grupo de sorteios.
--   **GET /api/draws:** Retorna a lista de sorteios. -**POST /api/draws:** Cria um novo sorteio.
+-   **GET /api/draws:** Retorna a lista de sorteios.
+-   **POST /api/draws:** Cria um novo sorteio.
 -   **GET /api/prizes:** Retorna a lista de prêmios.
 -   **POST /api/prizes:** Cria um novo prêmio.
 -   **GET /api/participants:** Retorna a lista de participantes.
