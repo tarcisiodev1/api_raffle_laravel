@@ -19,9 +19,9 @@ return new class extends Migration
             $table->timestamps(); // Colunas para timestamps de criação e atualização
 
             // Chaves estrangeiras para as tabelas "draws", "prizes" e "participants"
-            $table->foreign('sorteio_id')->references('id')->on('draws');
-            $table->foreign('premio_id')->references('id')->on('prizes');
-            $table->foreign('participante_id')->references('id')->on('participants');
+            $table->foreign('sorteio_id')->references('id')->on('draws')->cascadeOnDelete();
+            $table->foreign('premio_id')->references('id')->on('prizes')->cascadeOnDelete();
+            $table->foreign('participante_id')->references('id')->on('participants')->cascadeOnDelete();
         });
     }
 

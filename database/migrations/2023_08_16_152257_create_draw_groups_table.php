@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps(); // Colunas para timestamps de criação e atualização
 
             // Chave estrangeira para a tabela "churches"
-            $table->foreign('igreja_id')->references('id')->on('churches');
+            $table->foreign('igreja_id')->references('id')->on('churches')->cascadeOnDelete();
         });
     }
 

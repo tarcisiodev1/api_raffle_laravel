@@ -17,7 +17,7 @@ class ChurchController extends Controller
     public function index()
     {
         $churches = Church::all();
-        return ChurchResource::collection($churches);
+        return $this->response('Church all', 200, ChurchResource::collection($churches));
     }
 
     public function store(Request $request)
@@ -35,13 +35,24 @@ class ChurchController extends Controller
         return $this->response('Church created', 200, new ChurchResource($church));
     }
 
-    public function show(Church $church)
+    public function show(string $churchId)
     {
-        return new ChurchResource($church);
+
+        $church = Church::find($churchId);
+        if (!$church) {
+            return $this->error('Church not found', 404);
+        }
+        return $this->response('Draw Group details', 200, new ChurchResource($church));
     }
 
-    public function update(Request $request, Church $church)
+    public function update(Request $request, string $churchId)
     {
+
+        $church = Church::find($churchId);
+
+        if (!$church) {
+            return $this->error('Church not found', 404);
+        }
         $validator = Validator::make($request->all(), [
             'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
@@ -55,8 +66,13 @@ class ChurchController extends Controller
         return $this->response('Church updated', 200, new ChurchResource($church));
     }
 
-    public function destroy(Church $church)
+    public function destroy(string $churchId)
     {
+        $church = Church::find($churchId);
+
+        if (!$church) {
+            return $this->error('Church not found', 404);
+        }
         $church->delete();
         return $this->response('Church deleted', 200);
     }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps(); // Colunas para timestamps de criação e atualização
 
             // Chave estrangeira para a tabela "draw_groups"
-            $table->foreign('grupo_id')->references('id')->on('draw_groups');
+            $table->foreign('grupo_id')->references('id')->on('draw_groups')->cascadeOnDelete();
         });
     }
 

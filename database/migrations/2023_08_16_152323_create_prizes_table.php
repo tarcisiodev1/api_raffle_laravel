@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps(); // Colunas para timestamps de criação e atualização
 
             // Chave estrangeira para a tabela "draws"
-            $table->foreign('sorteio_id')->references('id')->on('draws');
+            $table->foreign('sorteio_id')->references('id')->on('draws')->cascadeOnDelete();
         });
     }
 
