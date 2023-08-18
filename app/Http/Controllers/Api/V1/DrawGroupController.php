@@ -96,7 +96,7 @@ class DrawGroupController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remova o recurso especificado do armazenamento.
      */
     public function destroy(string $drawGroupId)
     {
