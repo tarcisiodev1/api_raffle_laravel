@@ -2,7 +2,7 @@
 
 Este repositório contém uma API desenvolvida para criar e gerenciar sorteios específicos para igrejas. A API permite aos membros da comunidade participar de sorteios transparentes e visualizar os resultados de forma imparcial e eficiente. Abaixo estão as etapas para configurar e executar a API em seu ambiente local.
 
-**Instruções de Instalação:**
+## **Instruções de Instalação:**
 
 1. **Clonar o Repositório:**
 
@@ -38,13 +38,23 @@ Este repositório contém uma API desenvolvida para criar e gerenciar sorteios e
 
     ```
 
-**Como Usar a API:**
+## **Como Usar a API:**
 
 A API oferece endpoints para gerenciar igrejas, grupos de sorteios, sorteios, prêmios, participantes e ganhadores. Você pode utilizar ferramentas como o Postman ou o Insomnia para testar os endpoints e interagir com a API.
 
-**Exemplos de Endpoints:**
+## **Exemplos de Endpoints:**
 
--**GET /api/churches:** Retorna a lista de igrejas cadastradas. -**POST /api/churches:** Cria uma nova igreja. -**GET /api/draw-groups:** Retorna a lista de grupos de sorteios. -**POST /api/draw-groups:** Cria um novo grupo de sorteios. -**GET /api/draws:** Retorna a lista de sorteios. -**POST /api/draws:** Cria um novo sorteio. -**GET /api/prizes:** Retorna a lista de prêmios. -**POST /api/prizes:** Cria um novo prêmio. -**GET /api/participants:** Retorna a lista de participantes. -**POST /api/participants:** Cria um novo participante. -**GET /api/winners:** Retorna a lista de ganhadores. -**POST /api/winners:** Cria um novo ganhador.
+-   **GET /api/churches:** Retorna a lista de igrejas cadastradas.
+-   **POST /api/churches:** Cria uma nova igreja.
+-   **GET /api/draw-groups:** Retorna a lista de grupos de sorteios.
+-   **POST /api/draw-groups:** Cria um novo grupo de sorteios.
+-   **GET /api/draws:** Retorna a lista de sorteios. -**POST /api/draws:** Cria um novo sorteio.
+-   **GET /api/prizes:** Retorna a lista de prêmios.
+-   **POST /api/prizes:** Cria um novo prêmio.
+-   **GET /api/participants:** Retorna a lista de participantes.
+-   **POST /api/participants:** Cria um novo participante.
+-   **GET /api/winners:** Retorna a lista de ganhadores.
+-   **POST /api/winners:** Cria um novo ganhador.
 
 **Observações:**
 
