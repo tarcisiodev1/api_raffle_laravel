@@ -21,10 +21,17 @@ class ParticipantFactory extends Factory
     public function definition(): array
     {
         return [
-            // Relaciona com um sorteio aleatório
-            'sorteio_id' => Draw::all()->random()->id,
             'nome' => $this->faker->name, // Gera um nome aleatório
             'quantidade_bilhetes' => $this->faker->numberBetween(1, 5), // Gera um número entre 1 e 5
         ];
+    }
+
+    // Defina um estado para criar a relação com um sorteio
+    public function withDraw()
+    {
+        return $this->afterCreating(function (Participant $participant) {
+            $draw = Draw::inRandomOrder()->first(); // Seleciona um sorteio aleatório
+            $participant->draws()->attach($draw); // Cria o relacionamento na tabela intermediária
+        });
     }
 }

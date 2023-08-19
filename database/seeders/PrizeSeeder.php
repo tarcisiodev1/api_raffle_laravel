@@ -13,6 +13,6 @@ class PrizeSeeder extends Seeder
      */
     public function run(): void
     {
-        Prize::factory(50)->create(); // Cria 50 prêmios usando a factory
+        Prize::factory(150)->create(); // Cria 150 prêmios usando a factory
     }
 }

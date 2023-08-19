@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             PrizeSeeder::class,
             ParticipantSeeder::class,
             WinnerSeeder::class,
+            ParticipantDrawSeeder::class
         ]);
 
 

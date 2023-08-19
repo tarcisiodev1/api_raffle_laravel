@@ -13,6 +13,6 @@ class WinnerSeeder extends Seeder
      */
     public function run(): void
     {
-        Winner::factory(50)->create(); // Cria 50 ganhadores usando a factory
+        Winner::factory(5)->create(); // Cria 5 ganhadores usando a factory
     }
 }

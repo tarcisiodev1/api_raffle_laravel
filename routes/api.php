@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\ChurchController;
 use App\Http\Controllers\Api\V1\DrawController;
+use App\Http\Controllers\Api\V1\DrawExecutionController;
 use App\Http\Controllers\Api\V1\DrawGroupController;
 use App\Http\Controllers\Api\V1\ParticipantController;
 use App\Http\Controllers\Api\V1\PrizeController;
@@ -28,7 +29,10 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('churches', ChurchController::class);
     Route::apiResource('draw-groups', DrawGroupController::class);
     Route::apiResource('draws', DrawController::class);
-    Route::apiResource('prizes', PrizeController::class);
-    Route::apiResource('participants', ParticipantController::class);
-    Route::apiResource('winners', WinnerController::class);
+    Route::prefix('draws/{draw}')->group(function () {
+        Route::apiResource('participants', ParticipantController::class)->except(['create', 'edit']);
+        Route::apiResource('winners', WinnerController::class);
+        Route::apiResource('prizes', PrizeController::class);
+    });
+    Route::post('draws/{draw}/execute', [DrawExecutionController::class, 'index']);
 });

@@ -4,14 +4,16 @@ namespace Database\Factories;
 
 use App\Models\Draw;
 use App\Models\Participant;
-use App\Models\Prize;
-use App\Models\Winner;
+use App\Models\ParticipantDraw;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class WinnerFactory extends Factory
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class ParticipantDrawFactory extends Factory
 {
-    protected $model = Winner::class;
 
+    protected $model = ParticipantDraw::class;
     /**
      * Define the model's default state.
      *
@@ -23,15 +25,8 @@ class WinnerFactory extends Factory
         $draw = Draw::inRandomOrder()->first();
 
         return [
-            'sorteio_id' => $draw->id,
-            'premio_id' => Prize::all()->random()->id,
-            'participante_id' => $participant->id
+            'participant_id' => $participant->id,
+            'draw_id' => $draw->id,
         ];
     }
-
-    /**
-     * Define a unique state where there is only one winner per draw
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
 }

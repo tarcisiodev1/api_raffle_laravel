@@ -34,12 +34,18 @@ class Draw extends Model
     // Relacionamento: Um sorteio pode ter vários participantes
     public function participants()
     {
-        return $this->hasMany(Participant::class, 'sorteio_id');
+        return $this->belongsToMany(Participant::class, 'participant_draws');
     }
 
     // Relacionamento: Um sorteio pode ter vários ganhadores
     public function winners()
     {
         return $this->hasMany(Winner::class, 'sorteio_id');
+    }
+    //conta o número total de prêmios associados a um sorteio usando o relacionamento prizes() e, em seguida, atualiza o valor do campo quantidade_premios no próprio modelo Draw.
+    public function updateTotalPrizes()
+    {
+        $totalPrizes = $this->prizes()->count();
+        $this->update(['quantidade_premios' => $totalPrizes]);
     }
 }

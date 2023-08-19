@@ -17,10 +17,12 @@ class Participant extends Model
         'quantidade_bilhetes',
     ];
 
-    // Relacionamento: Um participante pertence a um sorteio
+
     public function draw()
     {
-        return $this->belongsTo(Draw::class, 'sorteio_id');
+        // Define a relação many-to-many com o modelo Draw
+        // usando a tabela intermediária 'participant_draws'
+        return $this->belongsToMany(Draw::class, 'participant_draws');
     }
 
     // Relacionamento: Um participante pode ser um ganhador de um prêmio

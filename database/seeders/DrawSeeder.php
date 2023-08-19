@@ -13,6 +13,6 @@ class DrawSeeder extends Seeder
      */
     public function run(): void
     {
-        Draw::factory(30)->create(); // Cria 30 sorteios usando a factory
+        Draw::factory(100)->create(); // Cria 30 sorteios usando a factory
     }
 }
