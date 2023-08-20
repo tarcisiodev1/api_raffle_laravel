@@ -66,9 +66,7 @@ class DrawGroupController extends Controller
         return $this->response('Draw Group details', 200, $drawGroup);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $drawGroupId)
     {
         $drawGroup = DrawGroup::find($drawGroupId);
