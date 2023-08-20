@@ -53,9 +53,7 @@ class DrawGroupController extends Controller
         return $this->error('Draw Group not created', 400);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $drawGroupId)
     {
 
