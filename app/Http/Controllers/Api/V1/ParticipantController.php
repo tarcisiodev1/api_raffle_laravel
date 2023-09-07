@@ -133,4 +133,29 @@ class ParticipantController extends Controller
 
         return $this->error('Participant not deleted', 400);
     }
+
+    public function buyTickets(Request $request, string $participantId)
+    {
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->error('Validation failed', 422, $validator->errors());
+        }
+
+        $participant = Participant::find($participantId);
+
+        if (!$participant) {
+            return $this->error('Participant not found', 404);
+        }
+
+        $quantity = $validator->validated()['quantity'];
+
+        // Atualizar a quantidade de bilhetes do participante
+        $participant->quantidade_bilhetes += $quantity;
+        $participant->save();
+
+        return $this->response("Tickets purchased successfully", 200, new ParticipantResource($participant));
+    }
 }

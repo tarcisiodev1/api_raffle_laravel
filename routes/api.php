@@ -34,5 +34,6 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('winners', WinnerController::class);
         Route::apiResource('prizes', PrizeController::class);
     });
+    Route::post('participants/{participantId}/buy-tickets', [ParticipantController::class, 'buyTickets']);
     Route::post('draws/{draw}/execute', [DrawExecutionController::class, 'index']);
 });
