@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome'); // Coluna para o nome da igreja
             $table->string('endereco'); // Coluna para o endereço da igreja
+            $table->string('group_key'); // key de busca
             $table->timestamps(); // Colunas para timestamps de criação e atualização
         });
     }
